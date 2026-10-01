@@ -1,67 +1,148 @@
-# Token-Onliner
-## Made by @ProtDos @CodingLive#0001
+<h1 align="center">TOKEN ONLINER</h1>
 
-## Unpatched version: DM @codinglive on discord...
+<p align="center">
+  A lightweight multi-threaded Python script that keeps Discord accounts showing as online
+  with a custom (or randomized) activity status.
+</p>
 
-https://t.me/xoding
+<p align="center">
+  <img src="https://img.shields.io/badge/python-3.8%2B-blue?logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/platform-windows%20%7C%20linux%20%7C%20macos-lightgrey" alt="Platform">
+  <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
+</p>
 
-![Screenshot (91)](https://user-images.githubusercontent.com/69071809/184872137-1c7bcdde-954a-412a-a576-aecd7c536f70.png)
+---
 
-## Installation
-```bash
-git clone https://github.com/ProtDos/Discord-Token-Onliner/
-cd Discord-Token-Onliner
-pip install -r requirements.txt
-python3 main.py
+## ⚠️ Disclaimer
+
+This project is for **educational purposes only**. Automating user accounts
+("self-botting") violates the [Discord Terms of Service](https://discord.com/terms)
+and may lead to account suspension or termination. Only use tokens for accounts
+that **you own**. The author is not responsible for any misuse or damage.
+
+---
+
+## ✨ Features
+
+- 🟢 Keep multiple accounts online at once (one thread per token)
+- 🎮 Custom status text and activity type: Playing, Streaming, Watching, Listening
+- 🌙 Presence options: Online, Do Not Disturb, Idle
+- 🎲 Random mode: random activity, app name, and presence per account
+- 📜 Live console output with colored logs
+- ⚡ Simple setup, no config files needed beyond `tokens.txt`
+
+---
+
+## 📦 Requirements
+
+- Python 3.8 or newer
+- The following packages:
+
+```
+websocket-client
+colorama
 ```
 
-## Usage
-1. Download the files
-2. Install the requirements
-3. Enter your tokens in `tokens.txt`
-4. Change text, type and status in `main.py` if you want
-5. Choose if you want random status or personal
-6. run: `python3 main.py`
-7. Enjoy
+---
 
-## Requirements
-- Python 3.6+
-- pip
-- requirements.txt installed
-- discord user tokens
+## 🚀 Installation
 
-## Replit
-- This bot works on replit too. 
-- If any errors occur please contact me. I am free to help.
+```bash
+git clone https://github.com/Yashit919/Discord-Tkn-Onliner.git
+cd Discord-Tkn-Onliner
+pip install -r requirements.txt
+```
 
-## Confusion
-![1E286F3A-CDB3-4ED9-B923-F5D1C90164F4](https://user-images.githubusercontent.com/69071809/185761601-99d304b6-9d7b-4d30-84b6-6bebfdc03446.png)
+`requirements.txt`:
 
-Don't get confused about this. It's current bug, I'll fix it asap. The bot still works. 
+```
+websocket-client
+colorama
+```
 
-## Features
-- unlimited tokens
-- locked tokens work
-- tokens won't get banned
-- fast
-- personal
+---
 
-## Error Mode
-If you get any errors try running `error_main.py`. If it doesn't help either, please make an [issue](https://github.com/ProtDos/Discord-Token-Onliner/issues/new) or contact me.
+## ⚙️ Configuration
 
+### 1. Add your tokens
 
-## Random mode
-If you set `random=True`, the random mode will be enabled. It'll will look like this:
+Create a `tokens.txt` file in the project folder, with **one token per line**:
 
-![imgg](https://user-images.githubusercontent.com/69071809/185407188-80f7d931-f3e2-4911-a38f-530a4926c158.png)
+```
+token_one_here
+token_two_here
+token_three_here
+```
 
-Else you can specify the status and text by your own.
+### 2. Edit the settings
 
-## Warning
-This didn't get patched at this moment: `8/16/2022`. If it did, please make an issue. Feel free to fork it and make pull requests. 
-Your tokens won't get banned from discord at this time. 
-This is no self bot, so it's NOT illigal to use. I still don't take any responsabilities for any damage. 
-It's your choice to download and use the script. 
-> I'm not a 12 y/o token scammer, feel free to look into the code.
+Open the script and change the values between the `Change here` and `Stop changing here` markers:
 
-## Enjoy!
+| Variable      | Description                                                            | Example            |
+|---------------|------------------------------------------------------------------------|--------------------|
+| `GAME`        | Text shown as the activity name                                        | `"Minecraft"`      |
+| `type_`       | Activity type: `types[0]` Playing, `[1]` Streaming, `[2]` Watching, `[3]` Listening | `types[0]` |
+| `status`      | Presence: `status[0]` Online, `[1]` Do Not Disturb, `[2]` Idle         | `status[0]`        |
+| `random_`     | `True` = random activity/status per account, `False` = use your settings | `False`          |
+| `stream_text` | Stream URL used when the type is Streaming                             | `"https://twitch.tv/yourname"` |
+
+---
+
+## ▶️ Usage
+
+```bash
+python main.py
+```
+
+You should see something like:
+
+```
+[i] Importing modules...
+[i] 3 tokens found in tokens.txt
+[i] Starting...
+[+] Tokens are online
+[i] <token> is online 1/3
+```
+
+Press `Ctrl + C` to stop.
+
+---
+
+## 📁 Project Structure
+
+```
+.
+├── main.py            # the onliner script
+├── tokens.txt         # your tokens (one per line), never commit this!
+├── requirements.txt
+└── README.md
+```
+
+> 🔒 Add `tokens.txt` to your `.gitignore` so you never upload tokens by accident.
+
+---
+
+## 🛠️ Troubleshooting
+
+| Problem                          | Fix                                                       |
+|----------------------------------|-----------------------------------------------------------|
+| `No tokens found in tokens.txt`  | Make sure the file exists and has at least one token      |
+| Token shows offline              | The token may be invalid, expired, or the account locked  |
+| `ModuleNotFoundError`            | Run `pip install -r requirements.txt`                     |
+| Connection errors                | Check your internet connection or try fewer tokens at once |
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you'd like to change.
+
+---
+
+## 📄 License
+
+Distributed under the MIT License. See `LICENSE` for details.
+
+---
+
+<p align="center">Made by <a href="https://github.com/Yashit919">Yashit919</a></p>
